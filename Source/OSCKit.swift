@@ -18,6 +18,7 @@ public class OSCKit {
         case unableToFindCacheFolder
         case unableToFindVideo
         case unableToCreateVideoCacheKey
+        case unableToParseMetadata
     }
 
     private init() { }
