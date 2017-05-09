@@ -21,6 +21,11 @@ extension OSCKit {
     public func getImage(url: String, type: DownloadType = .full) -> Promise<UIImage> {
         return async {
             let url = try await(self.getImageLocalURL(url: url, type: type))
+
+            //TODO: test metadata call
+            let imageMetadata = try await(self.getImageMetadata(of: url))
+            print("**** is360: \(imageMetadata.is360())")
+
             return try UIImage(contentsOfFile: url.path) !! SDKError.unableToFindImageAt(url)
         }
     }
